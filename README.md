@@ -9,24 +9,13 @@ A document for a the logs to be created need to be made. For this go to OneDrive
 
 ![](BlankTable.PNG) 
 ### Adding logs
-Now you have to add logs to the file. Go to power automate and select create a new flow, click skip then find the *When a HTTP request is received* trigger and select it.
+Now you have to add logs to the file. On power apps open the chatbot and select a topic add a new node under the trigger phrase select **Call a action** then **Create a flow**
 
-![](CreateFlow.PNG)
-![](trigger.PNG)
 
-Insert this JSON code into the *Request body JSON schema* portion 
 
-```json
-{
-    "type": "object",
-    "properties": {
-        "text": {
-            "type": "string"
-        }
-    }
-}
-```
-![](RequestJson.PNG)
+A new tab will open to power automate with a template flow. In the **When Power Virtual Agents calls a flow** trigger enter *text* into the tittle of the input
+
+
 For the next step select **List Rows Present in Table** operation under the Excel **Online (Business)** connection using your login credentials. In the section **Location** choose OneDrive for Business, in **Document Libary** choose OneDrive, in File choose the name of the excel file you created  eariler. Finally in Table choose the name of the table in the excel file.
 
 ![](ListRows.PNG)
@@ -43,13 +32,15 @@ This returns a number showing how many rows are in the table based on the length
 The next step should be a condition checking the log table is empty with the condition being if the variable **RowNum is greater than 0**. Below this contdion should be two sections: **If Yes or If No**.
 In the no section add the step **Add a row into the table**. Include all the values you did for the **List rows present in table**. In the topic section insert the **text** value from the HTTP trigger in Dynamic Content and the number section insert 1. 
 
-Now if you save the flow and go to the chatbot then enter a topic, a new row should be in the table of the excel file.
-
 ![](IsTableEmpty.PNG)
 
-Go back to power automate and go to the condition made earlier and add a condition to the yes section with the condition if the Topic value from List present rows in table contains the Text value from the HTTP trigger. After it's entered a **Apply to each** operation should be overlapped on the condtion meaning it's going to check each row on the table. 
+Now if you save the flow and go to the chatbot then enter a topic, a new row should be in the table of the excel file.
 
 ![](NewRow.PNG)
+
+Go back to power automate and go to the condition made earlier and add a condition to the yes section with the condition if the Topic value from List present rows in table contains the Text value from the trigger. After it's entered a **Apply to each** operation should be overlapped on the condtion meaning it's going to check each row on the table. 
+
+![](Apply.PNG)
 
 On the yes section add the step **Get a row** include all the values you did for the **List rows present in table**. In the Key Colunm section type in Topic and the Key Value section insert the **text** value from the HTTP trigger in Dynamic Content. 
 
