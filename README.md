@@ -1,5 +1,11 @@
 # Chatbot-Topic-Logs-Suggestions
 
+- [Chatbot-Topic-Logs-Suggestions](#chatbot-topic-logs-suggestions)
+  - [Logging the topics](#logging-the-topics)
+    - [Create the log file in excel](#create-the-log-file-in-excel)
+    - [Adding logs](#adding-logs)
+  - [Topic suggestions](#topic-suggestions)
+
 This documentation will show how to log topics that are entered in the chatbot and it will give suggestions based on those logs 
 
 ## Logging the topics
