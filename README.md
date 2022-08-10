@@ -5,6 +5,8 @@
     - [Create the log file in excel](#create-the-log-file-in-excel)
     - [Adding logs](#adding-logs)
   - [Topic suggestions](#topic-suggestions)
+    - [Retrieve the most frequent topics](#retrieve-the-most-frequent-topics)
+    - [Display Topics on Chatbot](#display-topics-on-chatbot)
 
 This documentation will show how to log topics that are entered in the chatbot and it will give suggestions based on those logs 
 
@@ -71,6 +73,8 @@ Remember to add your action to the topics that need to logged for the flows to r
 
 ## Topic suggestions
 
+### Retrieve the most frequent topics
+
 For the topic suggestions when the user asks the chatbot will retrieve the 4 most frequently asked questions and display them to the user
 
 Inside the Input suggestions topic call a new action same as the adding logs portion. You should be given the template flow. In the **When Power Virtual Agents calls a flow** trigger enter *Input* into the tittle of the input. 
@@ -125,6 +129,8 @@ variables('TopicArray')?[3]?['Topic']
 Now return these values to the chatbot, the next step should look like the image below. Save the workflow.
 
 ![](ReturnTopic.PNG)
+
+### Display Topics on Chatbot
 
 Go back to power apps the topic will now require 4 new variables they need to be the same name as the 4 topic variables in the workflow. Add a message containing the variables to show they have been returned.
 
